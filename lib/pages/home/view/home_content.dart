@@ -22,7 +22,7 @@ class HomeContent extends StatelessWidget {
       child: Row(
         children: const [
           Flexible(child: PlayListArea(),flex: 1,),
-          Flexible(child: PlayerArea(),flex: 4,),
+          Flexible(child: PlayerArea(),flex: 3,),
         ],
       ),
     );
@@ -41,10 +41,15 @@ class PlayListArea extends StatelessWidget {
         SongModel model = songs[index];
         return GestureDetector(
           child: Container(
-            height: 49,
-            padding: const EdgeInsets.only(left: 16),
+            // height: 49,
+            padding: const EdgeInsets.all(16),
             alignment: Alignment.centerLeft,
-            child: Text(model.songName),
+            child: Text(
+              model.songName,
+              style: const TextStyle(
+                color: Colors.white,
+              ),
+            ),
           ),
           onTap: (){
             context.read<HomePlayerModel>().current = model;
